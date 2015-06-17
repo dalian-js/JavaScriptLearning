@@ -1,3 +1,6 @@
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
+
 /**
  * Example 1
  */
@@ -14,3 +17,5 @@ var myvar = "my value";
   console.log(myvar); // undefined
   var myvar = "local value";
 })();
+
+
