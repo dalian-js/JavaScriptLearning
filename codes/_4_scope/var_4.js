@@ -1,3 +1,5 @@
+"use strict"
+
 function foo(a) {
     console.log( a + b ); // if a is number, result is NaN
     var b = a;
