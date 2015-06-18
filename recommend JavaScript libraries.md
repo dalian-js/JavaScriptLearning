@@ -2,7 +2,7 @@ Front end: Backbone, Angular
 
 Back end: Express.js
 
-Template engine: ejs http://www.embeddedjs.com/  or Handlebars
+Template engine: ejs or Handlebars
 
 Functional library: lodash
 
