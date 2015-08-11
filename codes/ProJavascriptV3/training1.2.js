@@ -10,7 +10,7 @@ UNDERSTANDING OBJECTS
 var alert = console.log;
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
+alert("----------------1------------------");
 var book = {};
  
 Object.defineProperties(book, {

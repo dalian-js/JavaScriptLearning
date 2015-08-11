@@ -15,7 +15,7 @@ The Factory Pattern
 // new keyword in the function.
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("-------------------------------------------------");
+alert("-------------------1------------------------------");
 function createPerson(name, age, job){
     var o = new Object();
     o.name = name;
@@ -40,7 +40,7 @@ The Constructor Pattern
 // create by "new"
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("-------------------------------------------------");
+alert("---------------------2----------------------------");
 function Person(name, age, job){
     this.name = name;
     this.age = age;
@@ -94,7 +94,7 @@ Constructors as Functions
     The only difference between constructor functions and other functions is the way in which they are called. 
 */
 /////////////////////////////////////////////////////////////////////////////////
-alert("-------------------------------------------------");
+alert("-------------------3------------------------------");
 
 //use as a constructor
 var person = new Person("Nicholas", 29, "Software Engineer");

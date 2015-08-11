@@ -18,7 +18,7 @@ The Prototype Pattern
 */
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
+alert("--------- 1 -------------------------");
 
 function Person(){
 }
@@ -61,7 +61,7 @@ alert(Object.getPrototypeOf(person1).name);  //"Nicholas"
 
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
+alert("--------- 2 -------------------------");
 
 // Whenever a property is accessed for reading on an object, a search is started to find a property with that name. 
 //      The search begins on the object instance itself. 
@@ -91,15 +91,66 @@ alert(person2.name);     //"Nicholas" - from prototype
 alert(person1.__proto__.name);     //"Nicholas" - from prototype
 
 alert();
-alert(person1.hasOwnProperty("name")); 
-alert(person2.hasOwnProperty("name"));
+alert(person1.hasOwnProperty("name"));  // true
+alert(person2.hasOwnProperty("name"));  // false
+
+
+alert();
+var props = Object.getOwnPropertyDescriptor(person1, "name");
+alert(props);
+
+alert();
+delete person1.name;
+alert(person1.hasOwnProperty("name")); // false
+
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
+alert("---------- 3 ------------------------");
 
+alert();
+var props = Object.getOwnPropertyDescriptor(person1, "name"); 
+alert(props); // undefined
 
+// support compatibility: http://kangax.github.io/compat-table/es5/
 
+alert("name" in person1);  //true
+
+alert("----- begin -- ")
+for (var prop in person1) {
+    alert("--");
+    alert(prop);
+    alert(person1[prop])
+}
+alert("----- end -- ")
 
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
+alert("----------- 4 -----------------------");
+
+//
+// To retrieve a list of all enumerable instance properties on an object, you can use the ECMAScript 5 Object.keys() method
+
+function Person(){
+}
+ 
+Person.prototype.name = "Nicholas";
+Person.prototype.age = 29;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function(){
+    alert(this.name);
+};
+ 
+var keys = Object.keys(Person.prototype);
+alert(keys);       //"name,age,job,sayName"
+ 
+var p1 = new Person();
+p1.name = "Rob";
+p1.age = 31;
+var p1keys = Object.keys(p1);
+alert(p1keys);    //"name,age"
+
+//
+// to retrieve all properties, use getOwnPropertyNames()
+
+var keys = Object.getOwnPropertyNames(Person.prototype);
+alert(keys);   //"constructor,name,age,job,sayName"
