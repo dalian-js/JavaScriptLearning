@@ -115,9 +115,14 @@ o.sayName();    //"Kristen"
 // Remember that the this object always points to the Global object (window in web browsers) 
 //      when a function is called without an explicitly set this value (by being an object method or through call()/apply()).
 
+// Problems with Constructors
+// It doesn’t make sense to have two instances of Function that do the same thing, 
+//  especially when the this object makes it possible to avoid binding functions to particular objects until runtime.
+
+alert(person1.sayName == person2.sayName); 
+alert(person1.sayName === person2.sayName); 
 
 
-
-/////////////////////////////////////////////////////////////////////////////////
-alert("-------------------------------------------------");
+// solution: 
+//   These problems are addressed by using the prototype pattern.
 
