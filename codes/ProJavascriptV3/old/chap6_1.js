@@ -48,12 +48,14 @@ Object.defineProperty(person4, "name", {
 console.log(person4.name);
 try {
     //delete person4.name;
-    
-    console.log(person4.name);
-    Object.defineProperty(person4, "name", {
-        configurable: true,
-        value: "Nicholas4"
-    });
+    var propName = Object.getOwnPropertyDescriptor(person4, 'name');
+    console.log(propName);
+    console.log(typeof propName);
+    // console.log(person4.name);
+    // Object.defineProperty(person4, "name", {
+    //     configurable: true,
+    //     value: "Nicholas4"
+    // });
 } catch (e) {
     console.log(e);
 }
