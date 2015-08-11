@@ -7,10 +7,12 @@ ECMA-262 defines an object as an “unordered collection of properties each of w
 UNDERSTANDING OBJECTS
 */
 
+"use strict";
+var alert = console.log;
+
 /////////////////////////////////////////////////////////////////////////////////
 // create a object, then add properties, methods.
 
-var alert = console.log;
 
 var person = new Object();
 person.name = "Nicholas";
@@ -107,27 +109,4 @@ alert(book._year);
 // It’s not necessary to assign both a getter and a setter. It is a little similar to C# property
 //   
 
-/////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////
-alert("----------------------------------");
 
