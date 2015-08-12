@@ -14,7 +14,7 @@ Alternate Prototype Syntax
 */
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("-------1------------------------------------------");
+alert("--------1-----------------------------------------");
 
 function Person(){
 }
@@ -39,7 +39,7 @@ alert();
 
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("--------2-----------------------------------------");
+alert("---------2----------------------------------------");
 
 
 Person.prototype = {
@@ -65,6 +65,55 @@ Object.defineProperty(Person.prototype, "constructor", {
     value: Person
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+alert("---------3----------------------------------------");
 
+alert(" --- extend the existing prototype")
+var friend= new Person();
+                   
+Person.prototype.sayHi = function(){
+    alert("hi");
+};
+                   
+friend.sayHi();   //"hi" - works!
+
+    
+alert();
+alert(" --- overwrite the whole prototype, can't work for existing instance");
+         
+var friend2 = new Person();
+alert(friend2.__proto__ === friend.__proto__);
+
+
+alert();
+Person.prototype = {
+    constructor: Person,
+    name : "Nicholas",
+    age : 29,
+    job : "Software Engineer",
+    sayName2 : function () {
+        alert(this.name + "2222222");
+    }
+};
+
+try {
+   friend2.sayName2();   //error
+} catch (e) {
+    alert(e);
+}
+var friend3 = new Person();
+friend3.sayName2();
+
+
+/////////////////////////////////////////////////////////////////////////////////
+alert("---------4----------------------------------------");
+
+alert(friend2.__proto__ == friend3.__proto__);
+alert(friend2.__proto__ === friend3.__proto__);
+alert(Object.getPrototypeOf(friend2) == Object.getPrototypeOf(friend3));
+alert(Object.getPrototypeOf(friend2) === Object.getPrototypeOf(friend3));
+
+alert(friend2.constructor === friend3.constructor);
+alert(friend2.constructor.prototype === friend3.constructor.prototype);
 
 

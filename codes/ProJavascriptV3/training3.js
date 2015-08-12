@@ -1,5 +1,3 @@
-
-
 "use strict";
 var alert = console.log;
 
@@ -14,11 +12,12 @@ alert(typeof String.prototype.substring); //"function"
 var n = 3;
 try {
     n.say();
-} catch (e) {
+}
+catch (e) {
     alert(e)
 }
 
-Number.prototype.say = function(){
+Number.prototype.say = function() {
     alert("from Number")
 }
 n.say();
@@ -26,17 +25,16 @@ n.say();
 /////////////////////////////////////////////////////////////////////////////////
 alert("-----2--------------------------------------------");
 
-function Person(){
-}
+function Person() {}
 Person.prototype = {
-constructor: Person,
-name : "Nicholas",
-age : 29,
-job : "Software Engineer",
-friends : ["Shelby", "Court"],
-sayName : function () {
-alert(this.name);
-}
+    constructor: Person,
+    name: "Nicholas",
+    age: 29,
+    job: "Software Engineer",
+    friends: ["Shelby", "Court"],
+    sayName: function() {
+        alert(this.name);
+    }
 };
 var person1 = new Person();
 var person2 = new Person();
@@ -57,17 +55,17 @@ alert("-----3--------------------------------------------");
 数；可谓是集两种模式之长。
 */
 
-function Person(name, age, job){
-this.name = name;
-this.age = age;
-this.job = job;
-this.friends = ["Shelby", "Court"];
+function Person(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.friends = ["Shelby", "Court"];
 }
 Person.prototype = {
-constructor : Person,
-sayName : function(){
-alert(this.name);
-}
+    constructor: Person,
+    sayName: function() {
+        alert(this.name);
+    }
 }
 var person1 = new Person("Nicholas", 29, "Software Engineer");
 var person2 = new Person("Greg", 27, "Doctor");
@@ -79,7 +77,33 @@ alert(person1.sayName === person2.sayName); //true
 
 
 /////////////////////////////////////////////////////////////////////////////////
+alert("------4------------------------------------------");
+
+/*
+注意构造函数代码中加粗的部分。这里只在sayName()方法不存在的情况下，才会将它添加到原
+型中。这段代码只会在初次调用构造函数时才会执行。此后，原型已经完成初始化，不需要再做什么修
+改了。
+*/
+
+function Person(name, age, job) {
+    //属性
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    //方法
+    if (typeof this.sayName != "function") {
+        Person.prototype.sayName = function() {
+            alert(this.name);
+        };
+    }
+}
+var friend = new Person("Nicholas", 29, "Software Engineer");
+friend.sayName();
+
+
+/////////////////////////////////////////////////////////////////////////////////
 alert("-------------------------------------------------");
 
 
-
+/////////////////////////////////////////////////////////////////////////////////
+alert("-------------------------------------------------");
