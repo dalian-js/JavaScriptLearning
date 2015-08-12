@@ -86,8 +86,13 @@ alert(person2 instanceof Person);  //true
 alert();
 alert(" -- check prototype -- ");
 alert(person1.__proto__ === Object.getPrototypeOf(person2));
-alert(person1.__proto__);
 
+alert(person1.prototype)
+alert(person1.__proto__);
+alert(person1.constructor.prototype);
+alert(person1.constructor.__proto__);
+
+alert(person2.prototype);
 
 /*
 Constructors as Functions
