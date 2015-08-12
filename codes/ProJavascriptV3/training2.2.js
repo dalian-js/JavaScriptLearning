@@ -154,3 +154,6 @@ alert(p1keys);    //"name,age"
 
 var keys = Object.getOwnPropertyNames(Person.prototype);
 alert(keys);   //"constructor,name,age,job,sayName"
+
+var keys = Object.getOwnPropertyNames(p1.__proto__);
+alert(keys);   //"constructor,name,age,job,sayName"
