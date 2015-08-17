@@ -28,15 +28,19 @@ person.sayName();
 // same as above
 
 var person = {
-    name: "Nicholas",
+    'name': "Nicholas",
+    a:"name",
     age: 29,
     job: "Software Engineer",
- 
+    '1': "Derek",
     sayName: function(){
         alert(this.name);
     }
 };
 person.sayName();
+person.name;
+alert(person[person.a]);
+
 
 /////////////////////////////////////////////////////////////////////////////////
 // types of properties
@@ -65,7 +69,12 @@ Object.defineProperty(person, "name", {
     value: "Nicholas readonly"
 });
 alert(person.name);
-person.name = "Greg";
+try {
+    person.name = "Greg";
+} catch (e) {
+    alert(e)
+}
+
 alert(person.name); 
 alert(Object.getOwnPropertyDescriptor(person, "name"));
 
@@ -98,7 +107,8 @@ Object.defineProperty(book, "year", {
             this._year = newValue;
             this.edition += newValue - 2004;
         }
-    }
+    },
+    enumerable: true,
 });
  
 book.year = 2005;
@@ -106,6 +116,10 @@ alert(book.edition);
 alert(book.year);
 alert(book._year);
 
+for (var prop in book) {
+    alert(prop)
+    alert(book[prop])
+}
 // It’s not necessary to assign both a getter and a setter. It is a little similar to C# property
 //   
 

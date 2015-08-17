@@ -31,7 +31,7 @@ var person1 = createPerson("Nicholas", 29, "Software Engineer");
 var person2 = createPerson("Greg", 27, "Doctor");
 alert(person1);
 alert(person2);
-
+alert(person1.name);
 
 
 /*
@@ -49,15 +49,15 @@ function Person(name, age, job){
         alert(this.name);
     };    
 }
-Person.prototype = function ABC(){
-    alert("ABC constructor");
-}
-                   
+                
 var person1 = new Person("Nicholas", 29, "Software Engineer");
 var person2 = new Person("Greg", 27, "Doctor");
 alert(person1);
 alert(person2);
+alert(person1.sayName == person2.sayName);
+alert(person1.sayName === person2.sayName);
 
+alert("---------------------2-2---------------------------");
 /* 
 speical with previous one:
     There is no object being created explicitly.
@@ -86,6 +86,7 @@ alert(person2 instanceof Person);  //true
 alert();
 alert(" -- check prototype -- ");
 alert(person1.__proto__ === Object.getPrototypeOf(person2));
+alert(Object.getPrototypeOf(person1) === person1.__proto__);
 
 alert(person1.prototype)
 alert(person1.__proto__);
@@ -94,6 +95,15 @@ alert(person1.constructor.__proto__);
 
 alert(person2.prototype);
 
+
+function Dalian(){
+    this.name = "dalian";
+}
+
+//alert(Dalian.name);
+//alert(Dalian().name);
+var dalian = new Dalian();
+alert(dalian.name);
 /*
 Constructors as Functions
     The only difference between constructor functions and other functions is the way in which they are called. 
@@ -116,6 +126,7 @@ window.sayName();   //"Greg"
 var o = new Object();
 Person.call(o, "Kristen", 25, "Nurse");
 o.sayName();    //"Kristen"
+
 
 // Remember that the this object always points to the Global object (window in web browsers) 
 //      when a function is called without an explicitly set this value (by being an object method or through call()/apply()).

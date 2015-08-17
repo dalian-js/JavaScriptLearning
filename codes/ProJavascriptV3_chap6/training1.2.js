@@ -33,7 +33,7 @@ Object.defineProperties(book, {
             }                  
         },
         // if add following code:
-        //   value: 2003 
+        //value: 2003,
         // will throw TypeError: A property cannot both have accessors and be writable or have a value
     }        
 });
