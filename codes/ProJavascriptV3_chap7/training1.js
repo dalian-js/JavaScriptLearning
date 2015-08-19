@@ -8,7 +8,7 @@ alert("-------------------------------------------------");
 
 function FuncNameIsThis(){
     
-}
+};
 
 alert(FuncNameIsThis.name);
 
@@ -53,9 +53,12 @@ sayHi3();
 做匿名函数（anonymous function），因为function 关键字后面没有标识符。
 （匿名函数有时候也叫拉姆达函数。）匿名函数的name 属性是空字符串
 */
-var functionName = function(arg0, arg1, arg2){
+var BB = function AA(arg0, arg1, arg2){
     //函数体
+    AA.name = 3;
+    alert(AA.name);
 };
+
 
 /////////////////////////////////////////////////////////////////////////////////
 alert("-------------------------------------------------");

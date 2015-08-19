@@ -32,11 +32,13 @@ var person = {
 };
 
 var anotherPerson = Object.create(person);
+alert(Object.hasOwnProperty(anotherPerson, "name"));
 anotherPerson.name = "Greg";
+alert(Object.hasOwnProperty(anotherPerson, "name"));
 anotherPerson.friends.push("Rob");
 
 var yetAnotherPerson = Object.create(person);
-yetAnotherPerson.name = "Linda";
+alert(yetAnotherPerson.name);
 yetAnotherPerson.friends.push("Barbie");
 alert(person.friends); //"Shelby,Court,Van,Rob,Barbie"
 
@@ -79,3 +81,5 @@ inheritPrototype(SubType, SuperType);
 SubType.prototype.sayAge = function() {
     alert(this.age);
 };
+
+var sub = new SubType("aa", 33);

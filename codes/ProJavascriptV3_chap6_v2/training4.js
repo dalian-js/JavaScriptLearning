@@ -46,7 +46,7 @@ alert(instance.getSuperValue()); //true
 
 
 /////////////////////////////////////////////////////////////////////////////////
-alert("-------------------------------------------------");
+alert("-------1------------------------------------------");
 
 
 /*
@@ -70,8 +70,23 @@ function SubType(name, age) {
     this.age = age;
 }
 //继承方法
-SubType.prototype = new SuperType();
-SubType.prototype.constructor = SubType;
+//SubType.prototype = new SuperType();
+
+SubType.prototype = {
+    prototype: SuperType,
+}
+
+//SubType.prototype.constructor = SubType;
+alert(SubType.prototype.constructor === SuperType);
+
+
+/////////////////////////////////////////////////////////////////////////////////
+alert("--------2-----------------------------------------");
+// todo
+alert(SubType.constructor === Function);
+
+alert(SubType.__proto__.name);
+
 SubType.prototype.sayAge = function() {
     alert(this.age);
 };
